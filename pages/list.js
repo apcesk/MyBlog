@@ -1,15 +1,15 @@
 import React,{useState} from 'react'
 import Head from 'next/head'
-import {Col, Row, List} from 'antd'
+import {Col, Row, List, Breadcrumb} from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import {CalendarFilled, FolderFilled, FireFilled} from '@ant-design/icons'
-import '../static/style/pages/index.css'
 
 
-const Home = () => {
+
+const myList = () => {
 
     // 伪造数据先
   const[myList,setMyList] = useState(
@@ -31,6 +31,17 @@ const Home = () => {
       <Header />
       <Row className="common-main" type="flex" justify="center">
         <Col className="common-left" xs={24} sm={24} md={16} lg={14} xl={14}>
+          {/* 面包屑导航 */}
+          <div className="bread-div">
+            <Breadcrumb>
+              <Breadcrumb.Item>
+                <a href="/">首页</a>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                视频教程
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
           <List 
             // header为列表设置头部
             header={<div>最新日志</div>}
@@ -67,4 +78,4 @@ const Home = () => {
 }
 
 
-export default Home
+export default myList
