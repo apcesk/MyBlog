@@ -8,16 +8,13 @@ import Author from '../components/Author'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import '../static/style/pages/details.css'
-
 import MarkNav from 'markdown-navbar'
 import 'markdown-navbar/dist/navbar.css'
-
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
-
 import Tocify from '../components/tocify.tsx'
-
+import serverPath from '../config/apiUrl'
 const Details = (props) => {
   const tocify = new Tocify();
   const renderer = new marked.Renderer();
@@ -98,7 +95,7 @@ Details.getInitialProps = async (context)=>{
   // console.log(context.query.id);
   let id = context.query.id;
   const promise = new Promise((resolve)=>{
-    axios('http://127.0.0.1:7001/default/getArticleById/'+id).then(
+    axios(serverPath.getArticleById+id).then(
       (res)=>{
         // console.log(res);
         resolve(res.data.data[0]);

@@ -9,13 +9,13 @@ import Advert from '../components/Advert'
 import Footer from '../components/Footer'
 import {CalendarFilled, FolderFilled, FireFilled} from '@ant-design/icons'
 import '../static/style/pages/index.css'
-
+import serverPath from '../config/apiUrl'
 
 const Home = (list) => {
   // console.log(list);
     // 伪造数据先
   const[myList,setMyList] = useState(list.data)
-  console.log(myList);
+  // console.log(myList);
 
 
   return (
@@ -67,14 +67,14 @@ Home.getInitialProps = async ()=>{
 
   const promise = new Promise((resolve)=>{
     //默认使用get方法
-    axios('http://127.0.0.1:7001/default/getArticleList').then(
+    axios(serverPath.getArticleList).then(
       (res)=>{
         // console.log('-->',res.data);
         resolve(res.data);
       }
     )
   })
-  console.log(promise);
+  // console.log(promise);
   return await promise;
 }
 
