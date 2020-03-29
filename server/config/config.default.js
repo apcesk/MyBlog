@@ -41,7 +41,17 @@ module.exports = appInfo => {
     // load into agent, default is close
     agent: false,
   };
-  
+  config.security = {
+    scrf:{
+      enable:false
+    },
+    domainWhiteList:['*']
+  };
+  config.cors = {
+    //允许哪些端口可以跨域
+    origin:'*',
+    allowMethods:'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
+  }
   return {
     ...config,
     ...userConfig,
