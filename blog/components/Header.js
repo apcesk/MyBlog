@@ -43,7 +43,7 @@ const Header = ()=>{
                 </Col>
                 <Col xs={0} sm={0} md={14} lg={8} xl={6}>
                     <Menu mode="horizontal" onClick={handleClick}>
-                        <Menu.Item key="home">
+                        <Menu.Item key='0'>
                             <HomeFilled />
                             首页
                         </Menu.Item>
@@ -52,7 +52,7 @@ const Header = ()=>{
                                 // 自己创建一个antd图标
                                 return (
                                     // 遇到了问题，无法将antd4.0的版本图标使用从数据库读取出来的样子进行渲染
-                                    <Menu.Item key={item.id}>
+                                    <Menu.Item key={item.id} onClick={handleClick}>
                                         <MyIcon iconType={item.icon} />
                                         {item.typeName}
                                     </Menu.Item>
